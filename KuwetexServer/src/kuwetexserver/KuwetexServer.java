@@ -5,6 +5,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+import other.Cat;
+
 public class KuwetexServer {
 	private static final int PORT = 4444;
 	private static int idCounter = 0;
@@ -12,6 +14,8 @@ public class KuwetexServer {
 	private Map<Integer, Socket> clientMap;
 	private boolean isWorking = false;
 	private ServerSocket serverSocket;
+	
+	public static final DataBank dataBank = new DataBank();
 	
 	public KuwetexServer() throws IOException {
 		clientMap = new HashMap<>();
@@ -21,6 +25,12 @@ public class KuwetexServer {
 	public void startServer() {
 		isWorking = true;
 		System.out.println("server started");
+		
+		for (int i=0; i<Cat.NAMES.length; i++) {
+			Thread t = new Thread(new Cat(i, i));
+			t.start();
+		}
+		
 		while (isWorking)
 		{
 			try {
