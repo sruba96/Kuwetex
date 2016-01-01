@@ -20,6 +20,7 @@ public class KuwetexServer {
 	
 	public void startServer() {
 		isWorking = true;
+		System.out.println("server started");
 		while (isWorking)
 		{
 			try {
@@ -30,6 +31,7 @@ public class KuwetexServer {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("server closed");
 	}
 	
 	/**

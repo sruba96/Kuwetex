@@ -38,16 +38,19 @@ class ClientWorker implements Runnable {
 					e.printStackTrace();
 					System.out.println("Error, user #" + ID);
 					logOutUser();
+					break;
 				}							
 		}
 	}
 	private void response(Message message) {
 		final int header = message.getHEADER();
-		System.out.println("Message from client #" + ID + ": " + message.getMessage());
+		System.out.println("Message to client #" + ID + ": " + message.getMessage());
 		switch (header) {	
 		
 		case Message.LOG_ME_IN: {
 			System.out.println("Online now: "+online);
+			message = new Message("You are connected.", Message.LOG_ME_IN);
+			sendMessage(message);
 			break;
 		}
 		case Message.LOG_OUT: {
@@ -72,6 +75,17 @@ class ClientWorker implements Runnable {
 			}
 		clientMap.remove(ID);
 		online--;
+		System.out.println("User #"+ID+" has disconnected. Online now: " + online);
+	}
+	
+	private void sendMessage (Message message) {
+		try {
+			out.writeObject(message);
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Error while sending message back to the client #"+ID);
+		}
 	}
 
 }

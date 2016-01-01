@@ -40,7 +40,8 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String msg ="New connection: " + Calendar.getInstance().getTime().toString();
 				try {
-					connection.connectToServer(msg);
+					msg = connection.connectToServer(msg);
+					textArea.append(msg + "\n");
 					connectButton.setEnabled(false);
 				} catch (IOException e) {					
 					e.printStackTrace();

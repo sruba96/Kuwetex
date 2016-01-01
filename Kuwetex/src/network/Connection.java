@@ -20,19 +20,38 @@ public class Connection {
 	public Connection() {		
 	}
 	
-	public void connectToServer(String msg) throws UnknownHostException, IOException {
-		if (isConnected) return;
+	public String connectToServer(String msg) throws UnknownHostException, IOException {
+		String msgBack = null;
+		if (isConnected) return null;
 		
 		socket = new Socket(ADRESS, PORT);
 		out = new ObjectOutputStream(socket.getOutputStream());
 		in = new ObjectInputStream(socket.getInputStream());
 		
-		sendNewMessage(msg, Message.LOG_ME_IN);
+		msgBack = sendNewMessage(msg, Message.LOG_ME_IN);
 		isConnected = true;
+		
+		return msgBack;
 	}
 	
-	public void sendNewMessage (String text, int header) {
-		message = new Message(text, header);				
+	public String sendNewMessage (String text, int header) {
+		message = new Message(text, header);		
+		try {
+			out.writeObject(message);
+			out.flush();
+			
+			Message back = (Message) in.readObject();
+			
+			if (back.getHEADER() == message.getHEADER()) {
+				return back.getMessage();
+			} else {
+				return "Error. Headers do not match";
+			}
+			
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return "Error. Exeption";
+		}
 	}
 	
 	@SuppressWarnings("finally")
