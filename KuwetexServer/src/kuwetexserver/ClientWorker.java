@@ -49,6 +49,7 @@ class ClientWorker implements Runnable {
 		
 		case Message.LOG_ME_IN: {
 			System.out.println("Online now: "+online);
+			clientMap.put(ID, socket); // add me to the map
 			message = new Message("You are connected.", Message.LOG_ME_IN);
 			sendMessage(message);
 			break;
