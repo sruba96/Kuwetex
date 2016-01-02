@@ -6,7 +6,7 @@ public class Message implements Serializable {
 	// headers
 	public static final int LOG_OUT = 0;
 	public static final int LOG_ME_IN = 1;
-	public static final int RESPONSE = 2;
+	public static final int GET_RAPORT = 2;
 	
 	private final int HEADER;
 	private final String MESSAGE_TEXT;

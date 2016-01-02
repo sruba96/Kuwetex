@@ -40,12 +40,12 @@ public class Connection {
 			out.writeObject(message);
 			out.flush();
 			
-			Message back = (Message) in.readObject();
+			Message response = (Message) in.readObject();
 			
-			if (back.getHEADER() == message.getHEADER()) {
-				return back.getMessage();
+			if (response.getHEADER() == message.getHEADER()) {
+				return response.getMessage();
 			} else {
-				return "Error. Headers do not match";
+				return "Error. Headers do not match.";
 			}
 			
 		} catch (IOException | ClassNotFoundException e) {

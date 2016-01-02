@@ -10,6 +10,7 @@ import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import network.Connection;
@@ -21,16 +22,17 @@ public class MainPanel extends JPanel {
 	private final Connection connection;
 	
 	private JTextArea textArea;
-	private JButton connectButton;
+	private JButton connectButton, getReportButton;
+	
 	public MainPanel(Connection conn) {
 		super (new BorderLayout());		
 		connection = conn;
 		
 		JPanel centerPanel = new JPanel();
-		textArea = new JTextArea(DEFAULT_COLLUMN_SIZE, DEFAULT_COLLUMN_SIZE * 2);
+		textArea = new JTextArea(DEFAULT_COLLUMN_SIZE, DEFAULT_COLLUMN_SIZE * 3);
 		textArea.setEditable(false);
 		textArea.setWrapStyleWord(true);
-		centerPanel.add(textArea);		
+		centerPanel.add(new JScrollPane(textArea));		
 		add (centerPanel, BorderLayout.CENTER);
 		
 		JPanel southPanel = new JPanel(new FlowLayout());
@@ -50,6 +52,20 @@ public class MainPanel extends JPanel {
 		});
 		southPanel.add (connectButton);
 		
+		getReportButton = new JButton("Raport");
+		getReportButton.addActionListener(new ReportButtonHandler());
+		southPanel.add(getReportButton);
+		
 		add (southPanel, BorderLayout.SOUTH);
+	}
+	
+	private class ReportButtonHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {			
+			String raport = connection.sendNewMessage(null, Message.GET_RAPORT);
+			textArea.append(raport);
+			textArea.append("\n");
+		}
+		
 	}
 }

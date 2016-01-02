@@ -44,9 +44,8 @@ class ClientWorker implements Runnable {
 	}
 	private void response(Message message) {
 		final int header = message.getHEADER();
-		System.out.println("Message to client #" + ID + ": " + message.getMessage());
-		switch (header) {	
-		
+		System.out.println("Message from client #" + ID + ": " + message.getMessage());
+		switch (header) {			
 		case Message.LOG_ME_IN: {
 			System.out.println("Online now: "+online);
 			clientMap.put(ID, socket); // add me to the map
@@ -58,7 +57,10 @@ class ClientWorker implements Runnable {
 			logOutUser();
 			break;
 		}
-		case Message.RESPONSE: {
+		case Message.GET_RAPORT: {
+			String raport = KuwetexServer.dataBank.toString();
+			message = new Message(raport, Message.GET_RAPORT);
+			sendMessage(message);
 			break;
 		}
 		default: {
