@@ -15,21 +15,22 @@ public class DataBank {
 		private final String eyeColor;
 		private final long timeSpent;
 		private final String dateOfexcrection;
+		private final String weight;
 			
-		Data(String name, String eyes, long time) {
-			catName = name; eyeColor = eyes; timeSpent = time;
+		Data(String name, String eyes, String weight, long time) {
+			catName = name; eyeColor = eyes; timeSpent = time; this.weight = weight;
 			dateOfexcrection = Calendar.getInstance().getTime().toString();
 		}	
 		@Override
 		public String toString() {
-			return catName +"; "+ eyeColor +" eyes; "+ timeSpent +"ms, on day: "+dateOfexcrection;			
+			return catName +"; "+ eyeColor +" eyes; "+"weight: "+weight+ ";  "+timeSpent +"ms, on day: "+dateOfexcrection;			
 		}
 	}
 	
-	public void addNewRecord (String name, String eyes, long time) {
+	public void addNewRecord (String name, String eyes, String weight ,long time) {
 		rwLock.writeLock().lock();
 		try {
-			dataList.add (new Data(name, eyes, time));
+			dataList.add (new Data(name, eyes, weight, time));
 		} finally {
 			rwLock.writeLock().unlock();
 		}

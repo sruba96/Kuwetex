@@ -17,7 +17,7 @@ import network.Connection;
 import network.Message;
 
 public class MainPanel extends JPanel {
-	public static final int DEFAULT_COLLUMN_SIZE = 15;
+	public static final int DEFAULT_COLLUMN_SIZE = 20;
 	
 	private final Connection connection;
 	

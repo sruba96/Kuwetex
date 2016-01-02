@@ -14,7 +14,7 @@ class ClientWorker implements Runnable {
 	private final ObjectOutputStream out;
 	private final int ID;	
 	private final Map<Integer, Socket> clientMap;
-	private static int online = 0;
+	private static volatile int online = 0;
 		
 	public ClientWorker(Socket s, int id, Map<Integer, Socket> map) throws IOException {
 		socket = s;
@@ -56,7 +56,7 @@ class ClientWorker implements Runnable {
 			break;
 		}
 		case Message.GET_RAPORT: {
-			String raport = KuwetexServer.dataBank.toString();
+			String raport = KuwetexServer.getRaport();
 			message = new Message(raport, Message.GET_RAPORT);
 			sendMessage(message);
 			break;
