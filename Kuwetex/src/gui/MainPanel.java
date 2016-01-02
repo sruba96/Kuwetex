@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.Calendar;
 
 import javax.swing.JButton;
@@ -13,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import kuwetexclient.KuwetexClient;
 import network.Connection;
 import network.Message;
 
@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
 	private final Connection connection;
 	
 	private JTextArea textArea;
-	private JButton connectButton, getReportButton;
+	private JButton connectButton, getReportButton, disconnectButton;
 	
 	public MainPanel(Connection conn) {
 		super (new BorderLayout());		
@@ -56,16 +56,53 @@ public class MainPanel extends JPanel {
 		getReportButton.addActionListener(new ReportButtonHandler());
 		southPanel.add(getReportButton);
 		
+		disconnectButton = new JButton("Diconnect");
+		disconnectButton.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if ( ! connection.isConnected()) return;
+				if (connection.closeConnection()) {
+					checkConnection();
+				} else {
+					textArea.append("Error. Could not disconnect form the server.\n");
+				}
+			}
+		});
+		
+		
+		
+		
+		southPanel.add(disconnectButton);		
 		add (southPanel, BorderLayout.SOUTH);
 	}
 	
 	private class ReportButtonHandler implements ActionListener {
 		@Override
-		public void actionPerformed(ActionEvent arg0) {			
+		public void actionPerformed(ActionEvent arg0) {	
+			if (! checkConnection()) return;
 			String raport = connection.sendNewMessage(null, Message.GET_RAPORT);
 			textArea.append(raport);
-			textArea.append("\n");
+			//textArea.append("\n");
+			try {
+				if (KuwetexClient.saveToFile(raport)) {
+					textArea.append("Saved to file: " + KuwetexClient.FILE_PATH);
+					textArea.append("\n\n");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+				textArea.append("Error. Could not save to file.\n\n");
+			}
 		}
 		
+	}
+	
+	private boolean checkConnection() {
+		if ( ! connection.isConnected()) {
+			// socket has been closed
+			connectButton.setEnabled(true);
+			textArea.append("You are not connected!\n");
+			return false;
+		}
+		return true;
 	}
 }

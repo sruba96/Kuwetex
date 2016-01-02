@@ -62,7 +62,7 @@ public class Connection {
 			out.writeObject(message);
 			out.flush();
 			
-			if (socket != null)
+			if (socket != null && !socket.isClosed())
 				socket.close();			
 			tof = true;			
 			isConnected = false;
@@ -71,5 +71,11 @@ public class Connection {
 		} finally {
 			return tof;
 		}
+	}
+
+	public boolean isConnected() {
+		if (socket == null || socket.isClosed())
+			isConnected = false;
+		return isConnected;
 	}
 }

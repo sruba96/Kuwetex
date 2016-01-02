@@ -6,8 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.Header;
-
 import network.Message;
 
 class ClientWorker implements Runnable {
