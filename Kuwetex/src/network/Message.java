@@ -7,15 +7,14 @@ public class Message implements Serializable {
 	public static final int LOG_OUT = 0;
 	public static final int LOG_ME_IN = 1;
 	public static final int GET_RAPORT = 2;
+	public static final int FORCE_CLEANING = 3;
 	
 	private final int HEADER;
 	private final String MESSAGE_TEXT;
 	
 	public Message (String msg, int header) {
 		MESSAGE_TEXT = msg; HEADER = header;
-	}
-	
-	
+	}	
 
 	/**
 	 * @return the header

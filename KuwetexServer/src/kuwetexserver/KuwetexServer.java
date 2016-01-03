@@ -14,6 +14,8 @@ import sensors.*;
 public class KuwetexServer {
 	private static final int PORT = 4444;
 	private static int idCounter = 0;
+	private static int litterBoxDirtiness = 0;
+	private static final int MAX_DIRTINESS_LEVEL = 7;
 	public static final Random random = new Random();
 	public static final int ROLL = 5_000; // for random time generation
 	//public static final String Separator = ";";
@@ -37,18 +39,21 @@ public class KuwetexServer {
 	}
 	
 	public void startServer() {
-		isWorking = true;
-		System.out.println("server started");
+		isWorking = true;		
+		// clearness monitor thread
+		new Thread(new CleaningSystemRunnable()).start();
 		
+		// creating virtual cats
 		for (int i=0; i<Cat.NAMES.length; i++) {
 			Thread t = new Thread(new Cat(i, i));
 			t.start();
 		}
-		
+		System.out.println("server started");		
 		while (isWorking)
 		{
 			try {
-				Socket socket = serverSocket.accept();				
+				Socket socket = serverSocket.accept();		
+				// new client thread
 				Thread t = new Thread(new ClientWorker(socket, idCounter++, clientMap));
 				t.start();
 			} catch (IOException e) {
@@ -71,6 +76,7 @@ public class KuwetexServer {
 			System.out.println("Cat "+name+" has entered.");
 			Thread.sleep(time);
 			t1 = System.currentTimeMillis();
+			litterBoxDirtiness += random.nextInt(2) + 1; // 1=small poop, 2=big poop
 		} finally {
 			lock.unlock();
 		}
@@ -89,6 +95,40 @@ public class KuwetexServer {
 	
 	public static String getRaport() {
 		return dataBank.toString();
+	}
+	
+	private class CleaningSystemRunnable implements Runnable {
+		@Override
+		public void run() {
+			while (true)
+			{
+				try {
+					clearLitterBox(false); // not forced
+					Thread.sleep(8_000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	public static void clearLitterBox(boolean forcedClean) throws InterruptedException {
+		lock.lock(); // There can not be any cat inside during cleaning process
+		try {
+			if ( (litterBoxDirtiness >= MAX_DIRTINESS_LEVEL) || forcedClean) {
+				if (forcedClean) {
+					System.out.println("Cleaning is forced by user.");
+				}				
+				System.out.println("Cleaning process is running. Dirtiness level: "+litterBoxDirtiness);
+				litterBoxDirtiness = 0;
+				Thread.sleep(random.nextInt(ROLL)); // cleaning time
+			} else {
+				System.out.println("CLEANING SYSTEM: Dirtness at normal level. Not cleaning.");
+			}
+		} finally {
+			lock.unlock();			
+		}
 	}
 	
 	/**

@@ -61,8 +61,21 @@ class ClientWorker implements Runnable {
 			sendMessage(message);
 			break;
 		}
+		case Message.FORCE_CLEANING: {
+			String m = "Cleaning done.";
+			try {
+				KuwetexServer.clearLitterBox(true); //forced
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				m = "Error. Failed to clean the litter box.";
+			} finally {
+				message = new Message(m, Message.FORCE_CLEANING);
+				sendMessage(message);
+			}
+			break;
+		}
 		default: {
-			System.out.println("Error, no such case.");
+			System.out.println("Error, no such case."); break;
 		}
 		} // end of switch
 	}

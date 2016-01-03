@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
 	private final Connection connection;
 	
 	private JTextArea textArea;
-	private JButton connectButton, getReportButton, disconnectButton;
+	private JButton connectButton, getReportButton, disconnectButton, forceCleanButton;
 	
 	public MainPanel(Connection conn) {
 		super (new BorderLayout());		
@@ -69,8 +69,9 @@ public class MainPanel extends JPanel {
 			}
 		});
 		
-		
-		
+		forceCleanButton = new JButton("Force Clean");
+		forceCleanButton.addActionListener(new ForceCleanButtonHandler());
+		southPanel.add(forceCleanButton);
 		
 		southPanel.add(disconnectButton);		
 		add (southPanel, BorderLayout.SOUTH);
@@ -92,6 +93,17 @@ public class MainPanel extends JPanel {
 				e.printStackTrace();
 				textArea.append("Error. Could not save to file.\n\n");
 			}
+		}
+		
+	}
+	
+	private class ForceCleanButtonHandler implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			if ( ! checkConnection()) return;
+			String raport = connection.sendNewMessage(null, Message.FORCE_CLEANING);
+			textArea.append(raport);
+			textArea.append("\n");
 		}
 		
 	}

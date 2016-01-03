@@ -1,10 +1,5 @@
 package other;
 
-import java.util.Random;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-import kuwetexclient.KuwetexClient;
 import kuwetexserver.KuwetexServer;
 
 public class Cat implements Runnable {
@@ -19,8 +14,6 @@ public class Cat implements Runnable {
 		EYE_COLOR = EYES[eyes];
 	}
 	
-	
-
 	@Override
 	public void run() {		
 		while (true)
