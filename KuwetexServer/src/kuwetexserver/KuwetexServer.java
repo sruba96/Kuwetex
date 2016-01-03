@@ -13,8 +13,8 @@ import sensors.*;
 
 public class KuwetexServer {
 	private static final int PORT = 4444;
-	private static int idCounter = 0;
-	private static int litterBoxDirtiness = 0;
+	private static volatile int idCounter = 0;
+	private static volatile int litterBoxDirtiness = 0;
 	private static final int MAX_DIRTINESS_LEVEL = 7;
 	public static final Random random = new Random();
 	public static final int ROLL = 5_000; // for random time generation
