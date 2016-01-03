@@ -1,24 +1,10 @@
-Sun Jan 03 17:47:48 CET 2016
+Sun Jan 03 18:43:18 CET 2016
 
-Filemon; red eyes; weight: 5 kg;  2389ms, on day: Sun Jan 03 17:46:39 CET 2016
-Dianusz; blue eyes; weight: 6 kg;  1949ms, on day: Sun Jan 03 17:46:41 CET 2016
-Garfield; green eyes; weight: 2 kg;  4951ms, on day: Sun Jan 03 17:46:46 CET 2016
-Dianusz; blue eyes; weight: 3 kg;  1176ms, on day: Sun Jan 03 17:46:49 CET 2016
-Filemon; red eyes; weight: 4 kg;  1367ms, on day: Sun Jan 03 17:46:50 CET 2016
-Garfield; green eyes; weight: 2 kg;  2484ms, on day: Sun Jan 03 17:46:53 CET 2016
-Garfield; green eyes; weight: 6 kg;  2211ms, on day: Sun Jan 03 17:46:57 CET 2016
-Dianusz; blue eyes; weight: 2 kg;  3021ms, on day: Sun Jan 03 17:47:00 CET 2016
-Filemon; red eyes; weight: 2 kg;  3265ms, on day: Sun Jan 03 17:47:05 CET 2016
-Dianusz; blue eyes; weight: 2 kg;  3611ms, on day: Sun Jan 03 17:47:09 CET 2016
-Garfield; green eyes; weight: 2 kg;  4756ms, on day: Sun Jan 03 17:47:16 CET 2016
-Dianusz; blue eyes; weight: 6 kg;  1775ms, on day: Sun Jan 03 17:47:20 CET 2016
-Garfield; green eyes; weight: 5 kg;  2037ms, on day: Sun Jan 03 17:47:22 CET 2016
-Filemon; red eyes; weight: 6 kg;  2650ms, on day: Sun Jan 03 17:47:24 CET 2016
-Garfield; green eyes; weight: 3 kg;  2957ms, on day: Sun Jan 03 17:47:27 CET 2016
-Garfield; green eyes; weight: 2 kg;  2852ms, on day: Sun Jan 03 17:47:32 CET 2016
-Dianusz; blue eyes; weight: 5 kg;  421ms, on day: Sun Jan 03 17:47:32 CET 2016
-Filemon; red eyes; weight: 3 kg;  839ms, on day: Sun Jan 03 17:47:33 CET 2016
-Filemon; red eyes; weight: 4 kg;  4268ms, on day: Sun Jan 03 17:47:38 CET 2016
-Garfield; green eyes; weight: 6 kg;  2601ms, on day: Sun Jan 03 17:47:44 CET 2016
-Filemon; red eyes; weight: 4 kg;  1831ms, on day: Sun Jan 03 17:47:46 CET 2016
-Dianusz; blue eyes; weight: 3 kg;  1116ms, on day: Sun Jan 03 17:47:47 CET 2016
+Dianusz; blue eyes; weight: 2 kg;  2238ms, on day: Sun Jan 03 18:42:57 CET 2016
+Filemon; red eyes; weight: 6 kg;  961ms, on day: Sun Jan 03 18:42:58 CET 2016
+Garfield; green eyes; weight: 5 kg;  1320ms, on day: Sun Jan 03 18:42:59 CET 2016
+Garfield; green eyes; weight: 5 kg;  1820ms, on day: Sun Jan 03 18:43:04 CET 2016
+Dianusz; blue eyes; weight: 5 kg;  383ms, on day: Sun Jan 03 18:43:07 CET 2016
+Filemon; red eyes; weight: 2 kg;  111ms, on day: Sun Jan 03 18:43:07 CET 2016
+Garfield; green eyes; weight: 3 kg;  1933ms, on day: Sun Jan 03 18:43:11 CET 2016
+Filemon; red eyes; weight: 4 kg;  1386ms, on day: Sun Jan 03 18:43:13 CET 2016

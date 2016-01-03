@@ -14,7 +14,7 @@ class ClientWorker implements Runnable {
 	private final ObjectOutputStream out;
 	private final int ID;	
 	private final Map<Integer, Socket> clientMap;
-	private static volatile int online = 0;
+	//private static volatile int online = 0;
 		
 	public ClientWorker(Socket s, int id, Map<Integer, Socket> map) throws IOException {
 		socket = s;
@@ -22,7 +22,7 @@ class ClientWorker implements Runnable {
 		clientMap = map;
 		in = new ObjectInputStream(socket.getInputStream());
 		out = new ObjectOutputStream(socket.getOutputStream());
-		online++;
+		//online++;
 	}
 	@Override
 	public void run() {
@@ -45,8 +45,8 @@ class ClientWorker implements Runnable {
 		System.out.println("Message from client #" + ID + ": " + message.getMessage());
 		switch (header) {			
 		case Message.LOG_ME_IN: {
-			System.out.println("Online now: "+online);
 			clientMap.put(ID, socket); // add me to the map
+			System.out.println("Online now: "+clientMap.size());
 			message = new Message("You are connected.", Message.LOG_ME_IN);
 			sendMessage(message);
 			break;
@@ -88,8 +88,8 @@ class ClientWorker implements Runnable {
 			} catch (IOException e1) {
 			}
 		clientMap.remove(ID);
-		online--;
-		System.out.println("User #"+ID+" has disconnected. Online now: " + online);
+		//online--;
+		System.out.println("User #"+ID+" has disconnected. Online now: " + clientMap.size());
 	}
 	
 	private void sendMessage (Message message) {
