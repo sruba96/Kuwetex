@@ -1,78 +1,28 @@
-Mon Jan 04 19:30:44 CET 2016
+Mon Jan 04 19:40:16 CET 2016
 
-* Dianusz; blue eyes; weight: 2 kg;  28ms, on day: Mon Jan 04 19:28:14 CET 2016;
+* Dianusz; blue eyes; weight: 3 kg;  1089ms, on day: Mon Jan 04 19:39:29 CET 2016;
 Fur quality: dirty - need cleaning, excrement: normal I
-* Filemon; red eyes; weight: 3 kg;  3682ms, on day: Mon Jan 04 19:28:18 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Garfield; green eyes; weight: 5 kg;  2720ms, on day: Mon Jan 04 19:28:20 CET 2016;
-Fur quality: normal, excrement: illness
-* Dianusz; blue eyes; weight: 3 kg;  4771ms, on day: Mon Jan 04 19:28:29 CET 2016;
-Fur quality: normal, excrement: over average
-* Filemon; red eyes; weight: 5 kg;  251ms, on day: Mon Jan 04 19:28:30 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Garfield; green eyes; weight: 2 kg;  3237ms, on day: Mon Jan 04 19:28:36 CET 2016;
-Fur quality: soft, excrement: normal II
-* Dianusz; blue eyes; weight: 2 kg;  4962ms, on day: Mon Jan 04 19:28:41 CET 2016;
-Fur quality: dirty - need cleaning, excrement: over average
-* Garfield; green eyes; weight: 3 kg;  2223ms, on day: Mon Jan 04 19:28:44 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Filemon; red eyes; weight: 3 kg;  1034ms, on day: Mon Jan 04 19:28:45 CET 2016;
-Fur quality: normal, excrement: normal I
-* Dianusz; blue eyes; weight: 6 kg;  3937ms, on day: Mon Jan 04 19:28:51 CET 2016;
-Fur quality: normal, excrement: over average
-* Garfield; green eyes; weight: 2 kg;  4780ms, on day: Mon Jan 04 19:28:58 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal I; Cat is PREGNANT!
-* Dianusz; blue eyes; weight: 3 kg;  3815ms, on day: Mon Jan 04 19:29:02 CET 2016;
-Fur quality: normal, excrement: over average
-* Filemon; red eyes; weight: 2 kg;  1565ms, on day: Mon Jan 04 19:29:03 CET 2016;
-Fur quality: normal, excrement: over average
-* Dianusz; blue eyes; weight: 3 kg;  203ms, on day: Mon Jan 04 19:29:06 CET 2016;
-Fur quality: normal, excrement: normal I
-* Dianusz; blue eyes; weight: 4 kg;  4489ms, on day: Mon Jan 04 19:29:11 CET 2016;
-Fur quality: soft, excrement: normal I
-* Garfield; green eyes; weight: 2 kg;  2595ms, on day: Mon Jan 04 19:29:14 CET 2016;
-Fur quality: normal, excrement: normal I
-* Filemon; red eyes; weight: 4 kg;  3425ms, on day: Mon Jan 04 19:29:19 CET 2016;
-Fur quality: normal, excrement: over average
-* Garfield; green eyes; weight: 6 kg;  4066ms, on day: Mon Jan 04 19:29:23 CET 2016;
-Fur quality: normal, excrement: over average
-* Dianusz; blue eyes; weight: 2 kg;  1467ms, on day: Mon Jan 04 19:29:24 CET 2016;
-Fur quality: normal, excrement: normal II; Cat is PREGNANT!
-* Filemon; red eyes; weight: 2 kg;  4805ms, on day: Mon Jan 04 19:29:31 CET 2016;
-Fur quality: dirty - need cleaning, excrement: illness
-* Garfield; green eyes; weight: 5 kg;  1781ms, on day: Mon Jan 04 19:29:33 CET 2016;
-Fur quality: normal, excrement: over average
-* Dianusz; blue eyes; weight: 4 kg;  4609ms, on day: Mon Jan 04 19:29:39 CET 2016;
+* Filemon; red eyes; weight: 2 kg;  4710ms, on day: Mon Jan 04 19:39:33 CET 2016;
 Fur quality: soft, excrement: over average
-* Garfield; green eyes; weight: 6 kg;  3285ms, on day: Mon Jan 04 19:29:45 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Filemon; red eyes; weight: 2 kg;  2454ms, on day: Mon Jan 04 19:29:47 CET 2016;
-Fur quality: dirty - need cleaning, excrement: over average
-* Dianusz; blue eyes; weight: 2 kg;  643ms, on day: Mon Jan 04 19:29:48 CET 2016;
-Fur quality: normal, excrement: normal II
-* Dianusz; blue eyes; weight: 6 kg;  4694ms, on day: Mon Jan 04 19:29:55 CET 2016;
-Fur quality: normal, excrement: normal II
-* Filemon; red eyes; weight: 5 kg;  4497ms, on day: Mon Jan 04 19:29:59 CET 2016;
-Fur quality: soft, excrement: normal I
-* Garfield; green eyes; weight: 5 kg;  4794ms, on day: Mon Jan 04 19:30:04 CET 2016;
+* Garfield; green eyes; weight: 6 kg;  44ms, on day: Mon Jan 04 19:39:33 CET 2016;
 Fur quality: soft, excrement: illness
-* Filemon; red eyes; weight: 2 kg;  1659ms, on day: Mon Jan 04 19:30:10 CET 2016;
+* Dianusz; blue eyes; weight: 6 kg;  516ms, on day: Mon Jan 04 19:39:34 CET 2016;
+Fur quality: dirty - need cleaning, excrement: normal I
+* Dianusz; blue eyes; weight: 2 kg;  1239ms, on day: Mon Jan 04 19:39:37 CET 2016;
+Fur quality: soft, excrement: normal I
+* Dianusz; blue eyes; weight: 6 kg;  3566ms, on day: Mon Jan 04 19:39:42 CET 2016;
+Fur quality: dirty - need cleaning, excrement: illness
+* Garfield; green eyes; weight: 3 kg;  148ms, on day: Mon Jan 04 19:39:46 CET 2016;
+Fur quality: dirty - need cleaning, excrement: normal I
+* Filemon; red eyes; weight: 3 kg;  2675ms, on day: Mon Jan 04 19:39:50 CET 2016;
 Fur quality: normal, excrement: normal I
-* Dianusz; blue eyes; weight: 3 kg;  3104ms, on day: Mon Jan 04 19:30:13 CET 2016;
-Fur quality: normal, excrement: normal I
-* Garfield; green eyes; weight: 3 kg;  4175ms, on day: Mon Jan 04 19:30:17 CET 2016;
-Fur quality: normal, excrement: normal I
-* Filemon; red eyes; weight: 4 kg;  1097ms, on day: Mon Jan 04 19:30:20 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Dianusz; blue eyes; weight: 5 kg;  3415ms, on day: Mon Jan 04 19:30:25 CET 2016;
-Fur quality: normal, excrement: normal I
-* Garfield; green eyes; weight: 3 kg;  1357ms, on day: Mon Jan 04 19:30:27 CET 2016;
-Fur quality: normal, excrement: illness; Cat is PREGNANT!
-* Filemon; red eyes; weight: 2 kg;  3797ms, on day: Mon Jan 04 19:30:31 CET 2016;
-Fur quality: dirty - need cleaning, excrement: normal II
-* Garfield; green eyes; weight: 5 kg;  1740ms, on day: Mon Jan 04 19:30:33 CET 2016;
-Fur quality: normal, excrement: normal I
-* Dianusz; blue eyes; weight: 5 kg;  995ms, on day: Mon Jan 04 19:30:34 CET 2016;
+* Dianusz; blue eyes; weight: 2 kg;  321ms, on day: Mon Jan 04 19:39:55 CET 2016;
 Fur quality: soft, excrement: normal II
-* Filemon; red eyes; weight: 6 kg;  4941ms, on day: Mon Jan 04 19:30:40 CET 2016;
-Fur quality: normal, excrement: normal I
+* Garfield; green eyes; weight: 5 kg;  4243ms, on day: Mon Jan 04 19:39:59 CET 2016;
+Fur quality: soft, excrement: normal II
+* Garfield; green eyes; weight: 3 kg;  1621ms, on day: Mon Jan 04 19:40:05 CET 2016;
+Fur quality: dirty - need cleaning, excrement: illness
+* Filemon; red eyes; weight: 5 kg;  2253ms, on day: Mon Jan 04 19:40:07 CET 2016;
+Fur quality: normal, excrement: normal II
+* Dianusz; blue eyes; weight: 3 kg;  2972ms, on day: Mon Jan 04 19:40:13 CET 2016;
+Fur quality: soft, excrement: normal I
