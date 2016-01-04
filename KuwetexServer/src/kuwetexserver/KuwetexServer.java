@@ -8,11 +8,11 @@ import java.util.Random;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import network.Message;
 import other.Cat;
 import sensors.*;
 
 public class KuwetexServer {
-	private static final int PORT = 4444;
 	private static volatile int idCounter = 0;
 	private static volatile int litterBoxDirtiness = 0;
 	private static final int MAX_DIRTINESS_LEVEL = 7;
@@ -30,12 +30,13 @@ public class KuwetexServer {
 	// sensors
 	private static final AbstractSensor eyeSensor = new EyeSensor(),
 								weightMachine = new WeightSensor(),
-								nameRecognization = new NameSensor();
+								nameRecognization = new NameSensor(),
+								healtChecker = new HealthSensor();
 	
 	// constructor
 	public KuwetexServer() throws IOException {
 		clientMap = new HashMap<>();
-		serverSocket = new ServerSocket(PORT);
+		serverSocket = new ServerSocket(Message.PORT);
 	}
 	
 	public void startServer() {
@@ -67,6 +68,7 @@ public class KuwetexServer {
 		String eyes = eyeSensor.examine(cat);
 		String weight = weightMachine.examine(cat);
 		String name = nameRecognization.examine(cat);
+		String healthStatus = healtChecker.examine(cat);
 		
 		int time = random.nextInt(ROLL);
 		long t0, t1;
@@ -83,14 +85,14 @@ public class KuwetexServer {
 		
 		// save data
 		System.out.println("Cat "+name+" has exited.");
-		updateData((t1-t0), name, eyes, weight); // total time spent in litter box (t1-t0)
+		// total time spent in litter box (t1-t0)
+		updateData((t1-t0), name, eyes, weight, healthStatus);
 	}
 
 
-	private static void updateData(long timeSpent, String name, String eyes, String weight) {	
+	private static void updateData(long timeSpent, String name, String eyes, String weight, String health) {	
 		System.out.println("Updating history");
-		dataBank.addNewRecord(name, eyes, weight, timeSpent);
-		//TODO health status check
+		dataBank.addNewRecord(name, eyes, weight, timeSpent, health);
 	}
 	
 	public static String getRaport() {
@@ -129,6 +131,10 @@ public class KuwetexServer {
 		} finally {
 			lock.unlock();			
 		}
+	}
+	
+	public static final DataBank getDataBank() {
+		return dataBank;
 	}
 	
 	/**

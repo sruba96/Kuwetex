@@ -7,9 +7,6 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Connection {
-	private static final String ADRESS = "localhost";
-	private static final int PORT = 4444;
-	
 	private Message message;
 	private boolean isConnected = false;
 	
@@ -24,7 +21,7 @@ public class Connection {
 		String msgBack = null;
 		if (isConnected) return null;
 		
-		socket = new Socket(ADRESS, PORT);
+		socket = new Socket(Message.ADRESS, Message.PORT);
 		out = new ObjectOutputStream(socket.getOutputStream());
 		in = new ObjectInputStream(socket.getInputStream());
 		

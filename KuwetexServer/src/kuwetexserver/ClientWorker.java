@@ -41,9 +41,8 @@ class ClientWorker implements Runnable {
 		}
 	}
 	private void response(Message message) {
-		final int header = message.getHEADER();
 		System.out.println("Message from client #" + ID + ": " + message.getMessage());
-		switch (header) {			
+		switch (message.getHEADER()) {			
 		case Message.LOG_ME_IN: {
 			clientMap.put(ID, socket); // add me to the map
 			System.out.println("Online now: "+clientMap.size());
@@ -64,7 +63,7 @@ class ClientWorker implements Runnable {
 		case Message.FORCE_CLEANING: {
 			String m = "Cleaning done.";
 			try {
-				KuwetexServer.clearLitterBox(true); //forced
+				KuwetexServer.clearLitterBox(true); // true = forced cleaning
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 				m = "Error. Failed to clean the litter box.";
@@ -74,8 +73,16 @@ class ClientWorker implements Runnable {
 			}
 			break;
 		}
+		case Message.GET_RECOMMENDATIONS: {
+			String recommendations = KuwetexServer.getDataBank().getPrescriptions();
+			message = new Message(recommendations, Message.GET_RECOMMENDATIONS);
+			sendMessage(message);
+			break;
+		}
 		default: {
-			System.out.println("Error, no such case."); break;
+			System.out.println("Error, no such case."); 
+			logOutUser(); // disconnect user
+			break;
 		}
 		} // end of switch
 	}
@@ -99,6 +106,8 @@ class ClientWorker implements Runnable {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("Error while sending message back to the client #"+ID);
+			// recursion try
+			sendMessage(message);
 		}
 	}
 

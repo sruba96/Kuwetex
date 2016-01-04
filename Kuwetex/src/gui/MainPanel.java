@@ -22,8 +22,9 @@ public class MainPanel extends JPanel {
 	private final Connection connection;
 	
 	private JTextArea textArea;
-	private JButton connectButton, getReportButton, disconnectButton, forceCleanButton;
-	
+	private JButton connectButton, getReportButton, disconnectButton, forceCleanButton, recommButton;
+	//private final JPanel thisPanel = this, recommendPanel;
+
 	public MainPanel(Connection conn) {
 		super (new BorderLayout());		
 		connection = conn;
@@ -71,9 +72,20 @@ public class MainPanel extends JPanel {
 		
 		forceCleanButton = new JButton("Force Clean");
 		forceCleanButton.addActionListener(new ForceCleanButtonHandler());
-		southPanel.add(forceCleanButton);
 		
+		recommButton = new JButton("Go to recommendations panel");
+		recommButton.addActionListener(new ActionListener() {			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if ( ! checkConnection()) return;				
+				KuwetexClient.swapPanel(1); // show recommendations panel
+			}
+		});
+		
+		southPanel.add(forceCleanButton);
+		southPanel.add(recommButton);		
 		southPanel.add(disconnectButton);		
+		
 		add (southPanel, BorderLayout.SOUTH);
 	}
 	
@@ -85,8 +97,8 @@ public class MainPanel extends JPanel {
 			textArea.append(raport);
 			//textArea.append("\n");
 			try {
-				if (KuwetexClient.saveToFile(raport)) {
-					textArea.append("Saved to file: " + KuwetexClient.FILE_PATH);
+				if (KuwetexClient.saveToFile(raport, KuwetexClient.RAPORT_FILE)) {
+					textArea.append("Saved to file: " + KuwetexClient.RAPORT_FILE);
 					textArea.append("\n\n");
 				}
 			} catch (IOException e) {
