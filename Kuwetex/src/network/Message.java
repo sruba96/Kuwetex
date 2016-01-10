@@ -6,7 +6,7 @@ public class Message implements Serializable {
 	
 	/* 
 	 * For socket connection.
-	 * Message is mutual to both client and server, so PORT and ADRESS is defined here.
+	 * Message is mutual to both client and server, so PORT and ADRESS are defined here.
 	 */
 	public static final int PORT = 4444;
 	public static final String ADRESS = "localhost";
