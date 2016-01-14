@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class DataBank {
 	private static final List<Data> dataList = new ArrayList<>();
 	private static final List<IllnessHistory> illnessHistory = new ArrayList<>();
-	
+	//Malina was here
 	// for ill cats
 	private static final String[] PRESCRIPTIONS = {"Go to doctor.", "Dig the grave.",
 			"Do not do anything, cat will recover soon.", "Cat needs to stress out. Give him/her Prozac."}; 
